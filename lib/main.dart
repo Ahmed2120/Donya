@@ -1,4 +1,3 @@
-import 'package:dashboard/pages/dashboard.dart';
 import 'package:dashboard/pages/login_page.dart';
 import 'package:dashboard/pages/webDashboard.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WebDashboard(),
+      home: const LoginPage(),
+      // home: const WebDashboard(),
     );
   }
 }
