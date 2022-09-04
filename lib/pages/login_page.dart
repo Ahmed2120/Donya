@@ -10,7 +10,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   final GlobalKey<FormState> _formKey = GlobalKey();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passController = TextEditingController();
@@ -44,7 +43,13 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text('Welcome to Donya application dashboard', style: TextStyle(color: Colors.white, fontSize: 55, fontWeight: FontWeight.bold),),
+                    Text(
+                      'Welcome to Donya application dashboard',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: dSize.width < 1000 ? dSize.width * 0.03 : 55,
+                          fontWeight: FontWeight.bold),
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Form(
@@ -53,8 +58,16 @@ class _LoginPageState extends State<LoginPage> {
                           width: dSize.width * 0.3,
                           child: Column(
                             children: [
-                              InputContainer(title: 'Email',dSize: dSize, controller: _emailController),
-                              InputContainer(title: 'Password',dSize: dSize, controller: _passController, isSecure: true,),
+                              InputContainer(
+                                  title: 'Email',
+                                  dSize: dSize,
+                                  controller: _emailController),
+                              InputContainer(
+                                title: 'Password',
+                                dSize: dSize,
+                                controller: _passController,
+                                isSecure: true,
+                              ),
                             ],
                           ),
                         ),
@@ -66,10 +79,13 @@ class _LoginPageState extends State<LoginPage> {
                         spacing: 20,
                         runSpacing: 20,
                         children: [
-                          buildElevatedButton('Login', Colors.blueAccent,(){}),
-                          buildElevatedButton('Forget password', Colors.indigoAccent, (){}),
-                          buildElevatedButton('Register',Colors.green,(){}),
-                          buildElevatedButton('Remember me', Colors.deepPurple, (){}),
+                          buildElevatedButton(
+                              'Login', Colors.blueAccent, () {}),
+                          buildElevatedButton(
+                              'Forget password', Colors.indigoAccent, () {}),
+                          buildElevatedButton('Register', Colors.green, () {}),
+                          buildElevatedButton(
+                              'Remember me', Colors.deepPurple, () {}),
                         ],
                       ),
                     ),
@@ -87,17 +103,17 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  ElevatedButton buildElevatedButton(String title, Color color, Function function) {
-    return ElevatedButton(onPressed: ()=> function(),
-                          style: ElevatedButton.styleFrom(
-                            primary: color,
-                            textStyle: const TextStyle(fontSize: 12),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25)),
-                              minimumSize: const Size(130, 50)
-                          ),
-                          child: Text(title),);
+  ElevatedButton buildElevatedButton(
+      String title, Color color, Function function) {
+    return ElevatedButton(
+      onPressed: () => function(),
+      style: ElevatedButton.styleFrom(
+          primary: color,
+          textStyle: const TextStyle(fontSize: 12),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          minimumSize: const Size(130, 50)),
+      child: Text(title),
+    );
   }
 }
-
-

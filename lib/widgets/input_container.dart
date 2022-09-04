@@ -26,7 +26,7 @@ class InputContainer extends StatelessWidget {
         controller: _controller,
         obscureText: isSecure,
         decoration: InputDecoration(
-          label: Text(title, style: const TextStyle(fontSize: 18,color: Colors.grey),),
+          label: Text(title, style: TextStyle(fontSize: dSize.width < 1000 ? dSize.width * 0.03 : 18,color: Colors.grey),),
           fillColor: Colors.white,
           filled: true,
           focusedBorder: OutlineInputBorder(
