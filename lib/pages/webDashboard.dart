@@ -14,6 +14,134 @@ class _WebDashboardState extends State<WebDashboard> {
 
     return Scaffold(
       backgroundColor: Colors.indigo,
+      endDrawer: Drawer(
+          backgroundColor: Colors.indigo,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            PopupMenuButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('sponsored ads',
+                        style: TextStyle(color: Colors.white, fontSize: 15)),
+                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                  ],
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('item1'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item2'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item3'),
+                  ),
+                ]),
+            PopupMenuButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('managers',
+                        style: TextStyle(color: Colors.white, fontSize: 15)),
+                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                  ],
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('item1'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item2'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item3'),
+                  ),
+                ]),
+            PopupMenuButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('sections',
+                        style: TextStyle(color: Colors.white, fontSize: 15)),
+                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                  ],
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('item1'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item2'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item3'),
+                  ),
+                ]),
+            PopupMenuButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('subsections',
+                        style: TextStyle(color: Colors.white, fontSize: 15)),
+                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                  ],
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('item1'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item2'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item3'),
+                  ),
+                ]),
+            PopupMenuButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('customers',
+                        style: TextStyle(color: Colors.white, fontSize: 15)),
+                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                  ],
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('item1'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item2'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item3'),
+                  ),
+                ]),
+            PopupMenuButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Language',
+                        style: TextStyle(color: Colors.white, fontSize: 15)),
+                    Icon(Icons.arrow_drop_down, color: Colors.white),
+                  ],
+                ),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('item1'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item2'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('item3'),
+                  ),
+                ]),
+          ],
+        )
+      ),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90.0),
         child: Padding(
@@ -23,7 +151,7 @@ class _WebDashboardState extends State<WebDashboard> {
             elevation: 0,
             leading: Image.asset('logo.png', fit: BoxFit.cover),
             leadingWidth: 100,
-            actions: [
+            actions: dSize.width < 800 ? [] :[
               InkWell(
                 onTap: (){},
                 child: Container(
@@ -159,34 +287,36 @@ class _WebDashboardState extends State<WebDashboard> {
         ),
       ),
       body: Center(
-        child: SizedBox(
-          width: double.infinity,
-          child: Wrap(
-            spacing: 400,
-            runSpacing: 70,
-            alignment: WrapAlignment.center,
-            children: [
-              buildContainer('number of ads', [
-                Color(0xFF1565C0),
-                Color(0xFFb92b27),
-              ]),
-              buildContainer('number of sections', [
-                Color(0xFFb92b27),
-                Color(0xFF1565C0),
-              ]),
-              buildContainer('Number of subsections', [
-                Color(0xFF5FC6FF),
-                Color(0xFF6448FE),
-              ]),
-              buildContainer('Number of clients', [
-                Color(0xFF1488CC),
-                Color(0xFF2B32B2),
-              ]),
-              buildContainer('country and statistics', [
-                Color(0xFF1D976C),
-                Color(0xFF215f00),
-              ]),
-            ],
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: double.infinity,
+            child: Wrap(
+              spacing: 400,
+              runSpacing: 70,
+              alignment: WrapAlignment.center,
+              children: [
+                buildContainer('number of ads', [
+                  Color(0xFF1565C0),
+                  Color(0xFFb92b27),
+                ]),
+                buildContainer('number of sections', [
+                  Color(0xFFb92b27),
+                  Color(0xFF1565C0),
+                ]),
+                buildContainer('Number of subsections', [
+                  Color(0xFF5FC6FF),
+                  Color(0xFF6448FE),
+                ]),
+                buildContainer('Number of clients', [
+                  Color(0xFF1488CC),
+                  Color(0xFF2B32B2),
+                ]),
+                buildContainer('country and statistics', [
+                  Color(0xFF1D976C),
+                  Color(0xFF215f00),
+                ]),
+              ],
+            ),
           ),
         ),
       ),

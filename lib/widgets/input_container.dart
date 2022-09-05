@@ -21,7 +21,6 @@ class InputContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
       ),
-      width: dSize.width * 0.3,
       child: TextFormField(
         controller: _controller,
         obscureText: isSecure,

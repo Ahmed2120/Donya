@@ -23,11 +23,14 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.indigo,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
-        child: AppBar(
-          backgroundColor: Colors.indigo,
-          elevation: 0,
-          leading: Image.asset('logo.png', fit: BoxFit.cover),
-          leadingWidth: 100,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 35.0),
+          child: AppBar(
+            backgroundColor: Colors.indigo,
+            elevation: 0,
+            leading: Image.asset('logo.png', fit: BoxFit.cover),
+            leadingWidth: dSize.width < 1000 ? dSize.width * 0.05 : 100,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -38,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 50.0),
-                width: dSize.width * 0.5,
+                width: dSize.width < 800 ? dSize.width * 0.8 : dSize.width * 0.5,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -47,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                       'Welcome to Donya application dashboard',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: dSize.width < 1000 ? dSize.width * 0.03 : 55,
+                          fontSize: dSize.width < 1000 ? dSize.width * 0.04 : 55,
                           fontWeight: FontWeight.bold),
                     ),
                     Container(
@@ -55,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Form(
                         key: _formKey,
                         child: SizedBox(
-                          width: dSize.width * 0.3,
+                          width: dSize.width < 800 ? 300 : dSize.width * 0.3,
                           child: Column(
                             children: [
                               InputContainer(
@@ -92,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Container(
+              dSize.width < 800 ? Container() : Container(
                 width: dSize.width * 0.5,
                 child: Image.asset('img.png'),
               )
